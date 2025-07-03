@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirBNv</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    
+
+    <section>
+        <ul>
+            <% registeredHome.forEach(home => {  %>
+
+            
+            <li>
+                <div class="temp-home-card">
+                    <span><b>House Name:    </b>    <%=home.housename%>             </span>
+                    <span><b>location:      </b>    <%=home.location%>             </span>
+                    <span><b>price:         </b>    <%=home.price%>             </span>
+                    <span><b>nights:        </b>    <%=home.nights%>             </span>
+                    <span><b>rating:        </b>    <%=home.rating%>             </span>
+                    <span><b>description:   </b>    <%=home.description%>             </span>
+                </div>
+            </li>
+
+            <%}) %>
+        </ul>
+    </section>
+
+    
+    
+</body>
+</html>

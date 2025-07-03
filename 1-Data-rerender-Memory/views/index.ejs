@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirBNv</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav>
+            <a href="/home">Home</a>
+            <a href="/favourite">Favourite</a>
+            <a href="/add-home">Add Home</a>
+            <a href=""></a>
+        </nav>
+    </header>
+
+    <section>
+        <ul>
+            <% registeredHome.forEach(home => {  %>
+
+            <li class="temp-home-card-li">
+                <div class="temp-home-card">
+                    <span><b>House Name:    </b>    <%=home.housename%>             </span>
+                    <span><b>location:      </b>    <%=home.location%>             </span>
+                    <span><b>price:         </b>    <%=home.price%>             </span>
+                    <span><b>nights:        </b>    <%=home.nights%>             </span>
+                    <span><b>rating:        </b>    <%=home.rating%>             </span>
+                    <span><b>description:   </b>    <%=home.description%>             </span>
+                </div>
+
+                <div class="addTofav-btn">
+                    <form action="" method="post">
+                        <button>AddtoFav</button>
+                    </form>
+                </div>
+            </li>
+
+            <%}) %>
+        </ul>
+    </section>
+
+    
+    
+</body>
+</html>
