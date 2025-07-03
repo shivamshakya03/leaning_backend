@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirBNv</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav>
+            <a href="/">Home</a>
+            <a href="/favpage">Favourite</a>
+            <a href="/add-home">Add Home</a>
+            <a href=""></a>
+        </nav>
+    </header>
+
+    <section>
+        <ul>
+            <% registeredHome.forEach(home => {  %>
+            
+            <a href="/home-details/<%=home.id%>">
+                <li class="temp-home-card-li">
+                    <div class="temp-home-card">
+                        <span><b>House Name:    </b>    <%=home.housename%>          </span>
+                        <span><b>location:      </b>    <%=home.location%>           </span>
+                        <span><b>price:         </b>    <%=home.price%>              </span>
+                        <span><b>nights:        </b>    <%=home.nights%>             </span>
+                        <span><b>rating:        </b>    <%=home.rating%>             </span>
+                        <span><b>description:   </b>    <%=home.description%>        </span>
+                    </div>
+
+                    <div class="addTofav-btn">
+                        <form action="/add-to-fav/<%=home.id%>" method="post">
+                            <button type="submit">AddtoFav</button>
+                        </form>
+
+                        <a href="/add-home/<%=home.id%>?editing=true">Edit</a>
+
+                        <form action="/delete-home/<%=home.id%>" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+                </li>
+            </a>
+            <%}) %>
+        </ul>
+    </section>
+
+    
+    
+</body>
+</html>

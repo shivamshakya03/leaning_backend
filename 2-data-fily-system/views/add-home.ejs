@@ -1,0 +1,32 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AirBNv</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+   
+
+    <section class="input-form-section">
+
+    <form action="/<%= editing ? 'edit-home' : 'add-home' %>" method="post">
+
+        <input type="hidden" name="id" value="<%= editing ? home.id : '' %>">
+        <input type="text" name="housename" placeholder="Enter House Name:" required value="<%= editing ? home.housename : '' %>">
+        <input type="text" name="location" placeholder="House Location" required value="<%= editing ? home.location : '' %>">
+        <input type="text" name="price" placeholder="Price" required value="<%= editing ? home.price : '' %>">
+        <input type="text" name="nights" placeholder="Stay How Many Nights" required value="<%= editing ? home.nights : '' %>">
+        <input type="text" name="rating" placeholder="rating" required value="<%= editing ? home.rating : '' %>">
+        <textarea type="text" name="description" placeholder="description" ><%= editing ? home.description : '' %></textarea>
+        <button type="submit"><%= editing ? 'Update' : 'Registered' %></button>
+    </form>
+    
+</section>
+    
+</body>
+</html>
