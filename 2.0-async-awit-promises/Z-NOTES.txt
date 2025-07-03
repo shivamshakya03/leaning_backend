@@ -1,0 +1,79 @@
+*** storeController.js **
+
+export const postAddHome = (req,res,next) => {
+    console.log(req.body);
+    registeredHome.push(req.body);
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = dirname(__filename);
+    const HOME_FILE_PATH = path.join(__dirname, '../data', 'home.json');
+    fs.writeFile(HOME_FILE_PATH, JSON.stringify(registeredHome), (err) => {
+        console.log("Error While Writing FIle:", err)
+    })
+    // console.log(registeredHome);
+    res.redirect('/');
+    
+}
+
+--------------------------- overwrites the file each time, so previous data is replaced. NOT ADDED NEW HOMES -----------------------------------------------------------
+
+✅ Goal:
+Append new home data to an array in home.json without deleting existing ones.
+
+✅ Solution:
+Read the existing data from the file.
+
+Parse it (if exists), append the new entry.
+
+Write the updated array back to the file.
+
+
+
+export const postAddHome = (req,res,next) => {
+    console.log(req.body);
+    registeredHome.push(req.body);
+
+    const newHOme = req.body;
+
+    // Read Existing File:
+    fs.readFile(HOME_FILE_PATH, (err, data) => {
+        let homes = [];
+        if(!err && data) {
+            try{
+                homes = JSON.parse(data);
+            }catch(parseErr){
+                console.error("Error Parsing Existing Json:" ,parseErr);
+            }
+        }
+
+        homes.push(newHOme); //Append new Data
+
+        // Step 3: Write updated data back to file
+        fs.writeFile(HOME_FILE_PATH, JSON.stringify(homes), (err) => {
+        console.log("Error While Writing FIle:", err)
+        })
+        // console.log(registeredHome);
+        res.redirect('/');
+        })   
+}
+
+
+----------------------------------------- FETCH AND RENDER FILES --------------------------------------------------------------------------
+
+
+export const getIndex = (req,res,next) => {
+    fs.readFile(HOME_FILE_PATH, 'utf-8', (err, data) => {       //It tells Node.js to decode the file contents as a UTF-8 string instead of returning it as a Buffer.
+        let Fetchhomes = [];
+        if(!err && data) {
+            try{
+                Fetchhomes = JSON.parse(data);
+                console.log(Fetchhomes);
+            }catch(parseErr){
+                console.error("Error Parsing Existing Json:" ,parseErr);
+            }
+        }else{
+            console.log(err);
+        }
+
+        res.render('index', {registeredHome: Fetchhomes});
+    })
+}

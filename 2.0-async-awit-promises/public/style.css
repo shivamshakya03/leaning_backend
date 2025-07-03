@@ -1,0 +1,74 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    width: 100vw;
+    background: #f78282;
+    height: 80px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+nav{
+    display: flex;
+    gap: 10px;
+}
+
+nav a{
+    font-size: 18px;
+
+}
+.input-form-section{
+    width: 100vw;
+    background: #d6d6d6;
+    min-height: 700px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.input-form-section form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-form-section form input{
+    width: 250px;
+    height: auto;
+    padding: 10px;
+}
+.input-form-section form textarea{
+    width: 250px;
+    height: auto;
+    padding: 10px;
+}
+.temp-home-card{
+    display: flex;
+    gap: 20px;
+}
+.temp-home-card-li{
+    border: 2.5px solid red;
+    display: flex;
+    margin: 15px;
+    padding: 10px;
+    gap: 20px;
+    flex-direction: column;
+
+}
+
+.addTofav-btn{
+    padding-left: 700px;
+    display: flex;
+    gap: 15px;
+    
+}
